@@ -32,6 +32,10 @@ module.exports = {
 					module.exports.auth = module.exports._settings.pass === "";
 					console.log("Load settings from " + module.exports.settingsDir);
 				});
+			}else{
+        proc.exec("iptables-save > " + module.exports._settings.savePath, function(error, stdout, stderr) {
+					console.log("The file was saved init!");
+				});
 			}
 		});
 	},
